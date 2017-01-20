@@ -15,7 +15,7 @@
         module.exports = factory(window.angular || require('angular'), require('ladda'));
     } else {
         // in the case of no module loading system
-        return factory(root.angular, root.ladda);
+        return factory(root.angular, root.Ladda);
     }
 }(this, function (angular, ladda) {
 
@@ -28,14 +28,24 @@
             scope: {
                 dtPreloader: "&",
                 color: "@",
-                label: "@"
+                label: "@",
+                style: "@"
             },
             templateUrl: templateSelector,
             restrict: "A",
             replace: true,
             transclude: true,
             controller: ['$scope', '$element', dtPreloaderController],
-            controllerAs: "ctrl"
+            controllerAs: "ctrl",
+            compile: function(element, attrs){
+                if (!attrs.style) {
+                    attrs.style = 'zoom-in';
+                }
+
+                if(!attrs.color) {
+                    attrs.color = 'white';
+                }
+            }
         };
 
         function templateSelector(element, attrs) {
@@ -59,7 +69,7 @@
             } else {
                 stop();
             }
-        }
+        };
 
         function start() {
             $scope.inProgress = true;

@@ -1,8 +1,8 @@
 {
-    "version": "0.0.0",
+    "version": "1.0.0",
     "name": "ladda-preloader-directive",
     "author": "Dev Team Inc. <contact@dev-team.com> (http://dev-team.com)",
-    "description": "AngularJS ladda preloader directive",
+    "description": "AngularJS ladda preloader directive wrapper",
     "main": "./index.js",
     "devDependencies": {
 		"grunt": "^1.0.1",
